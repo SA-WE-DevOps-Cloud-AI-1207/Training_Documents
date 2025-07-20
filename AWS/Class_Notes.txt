@@ -401,8 +401,292 @@ Day 3 : 19th July 2025
 Next :::		
 		- S3 :::
 				
+
+
+#######################
+Day 3 : 19th July 2025
+#######################	
+
+		
+	- EC2 Services!
+	
+		EC2 - Elastic Compute Cloud Instance ==> Virtual Machine 
+		
+		
+		
+		
+	
+	- Storage :
+	
+		- EBS 
+		
+		- EFS
+		
+		- S3
+
+	- EC2 Service :::
+	
+		EC2 - Elastic Compute Cloud Instance ==> Virtual Machine 
+		
+	
+	- Access EC2 Instances!
 	
 	
+		- Login to AWS Console 
+		
+		- Create EC2 Instance --> Linux - Ubuntu AMI v22.04 - Enabled with port 22.
+		
+		- Connect to EC2 Instance :
+		
+			- EC2 Instance Connect 			# Using Web Browser 
+			
+			- Using SSH Agents :			# Windows User  
+			
+				- MobaXterm 				# https://mobaxterm.mobatek.net/download-home-edition.html
+				- Putty 
+	
+			- Terminals :					# CMD Prompt/gitbash/Linux Teminal/Mac Terminal
+			
+					Open Terminal
+
+					Locate your private key file. The key used to launch this instance is aws2025-keypair1.pem
+
+					Run this command, if necessary, to ensure your key is not publicly viewable.
+					chmod 400 "aws2025-keypair1.pem"
+
+					Connect to your instance using its Public DNS:
+					ec2-13-235-75-90.ap-south-1.compute.amazonaws.com
+					
+					ssh -i "aws2025-keypair1.pem" ec2-user@ec2-13-235-75-90.ap-south-1.compute.amazonaws.com
+
+			
+		
+			SSH Connection to Remote Server :
+			
+				- Host Name 		# Public IP Address of EC2 Instance 
+				
+				- User Name			# Default User_Name : Ubuntu : ubuntu / Amazon Linux2 : ec2-user 
+				
+				- User Credentials 	# 
+				
+					Private Key ==> *.pem
+		
+		
+		Production Envionments :
+		
+			- Prod Servers 
+			
+				--> 1,2,3,4,5		==> Elastic IP 
+				
+				==> www.loksai.com ==> IP Address
+				
+				==> Load Balancers ==> 1 - IP => 
+				
+						1,2,3,4,5		==> Elastic IP 
+						
+					Kubernetes!
+						
+						
+	- Storage :
+	
+		- EBS Volumes ::: 
+		
+			Jenkins Servers (VM) == Periodic back-up of this server Volume ==> Snapshot. Template of EBS Volume 
+			
+			Build Servers 
+			
+			Kubernetes Cluster 
+		
+		Storage Administrator!
+			
+		
+		
+		- EFS :
+		
+			- Multi-AZs
+		
+		
+		- AMI ==> Amazon Machine Image!	Template of the EC2 Instance 
+		
+			- OS,Instance Type, 
+		
+		
+		
+		- Create a VM using default AMI 		
+		
+		- Install all the required tools/packages in that VM
+		
+		- Create a New AMI using this VM 
+		
+		- New AMI is ready 
+		
+		
+		-> Build Server/Environment used to build the Applications 
+		
+		
+			Within a region :
+			
+			--> VM1 -> Install all the required build tools 
+						-> git,maven,gradle,jdk,docker,sonarqube,
+						
+			--> VM2 -> Install all the required build tools 
+		               -> git,.Net-SDK,docker,sonarqube,
+					   
+					   
+			Create a AMI based on VM1 
+					   
+			Create a AMI based on VM2 
+		
+		
+			- Workflow :
+			
+				Test the VM created using custom AMI 
+				
+				
+			EBS Volume Encryption :
+			
+				Security --> 
+				
+					AWS - KMS
+					
+					During Snapshot!
+					
+					Encryption creates some latency!
+		
+
+	
+#######################
+Day 3 : 19th July 2025
+#######################	
+	
+	- AWS S3 Service 
+	
+	
+		S3 Bucket is Name should be unique. 
+			Eg.: loksai-eta-2025-s3-bucket1
+	
+	https://loksai-eta-2025-s3-bucket1.s3.ap-south-1.amazonaws.com/index.html
+	
+	
+	https://awspolicygen.s3.amazonaws.com/policygen.html
+	
+	
+	https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html?icmpid=docs_amazons3_console
+	
+	
+	{
+	  "Version": "2012-10-17",
+	  "Statement": [
+		{
+		  "Sid": "Statement1",
+		  "Effect": "Allow",
+		  "Principal": "*",
+		  "Action": [
+			"s3:GetObject"
+		  ],
+		  "Resource": "arn:aws:s3:::loksai-eta-2025-s3-bucket1/*"
+		}
+	  ]
+	}
+	
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Principal":{
+            "AWS":[
+                 "arn:aws:iam::111122223333:user/JohnDoe,
+				 arn:aws:iam::1111222244444:user/Peter"
+         ]
+        },
+        "Effect": "Allow",
+        "Action": [
+            "s3:PutObject"
+        ],
+        "Resource": [
+            "arn:aws:s3:::amzn-s3-demo-bucket/*"
+        ],
+        "Condition": {
+            "StringEquals": {
+                "s3:RequestObjectTag/Department": "Finance"
+            }
+        }
+    }]
+}
+
+
+	S3 Object Versioning - to maintain the previous version.
+	
+	S3 Storage Class :::
+	
+		https://aws.amazon.com/s3/storage-classes/#topic-6
+	
+	https://loksai-eta-2025-s3-bucket1.s3.ap-south-1.amazonaws.com/index.html
+	
+	File System :
+	
+		- Batch Processing 
+		- Is Sequential by default 
+		- Key Sequential file 
+	
+	- AWS Database Service ::::
+	
+			https://aws.amazon.com/free/database/?p=ft&amp;z=subnav&amp;loc=3
+	
+		RDMS : 
+	
+			Database :
+				- Collection of Tables 
+					- Table is a collection of Rows and Columns.
+					- Used to maintain the relational data based on the application/domain.
+					
+	
+	
+	Students' Database :
+	
+	Stud_Primary_Table
+	
+	S_No		S_Name 		DOB				S_Contact_No	S_Email				S_Course_ID 
+	
+	101			xxxxxxxx	02/04/1999		3452345234		adfasd@asdf.com		C1001
+	102			xxxexx		05/12/2000		3452245234		adasd@asdf.com		C1002					
+	103			xxxexx		05/10/2001		3452145234		adfad@asdf.com		C1001	
+	104			xxasxexx	05/12/2001		3152145234		afad@asdf.com		C1006				
+
+	Course_Table :
+	
+	S_Course_ID 	S_Cource_Name		S_Cource_Duration		S_Cource_Fee	S_Cource_Eligibility
+	
+	C1001			xxxasdxxxxx			6						00000.00		xxxqqqqqqqq
+	C1002			xxxxxasdfsxxx		6						00000.00		xxxqqqqqqqq
+	C1003			xxadxxxasdfxxx		6						00000.00		xxxqqqqqqqq
+	C1004			xxxxxxxx			6						00000.00		xxxqqqqqqqq					
+	C1005			xxxxxxasdxx			6						00000.00		xxxqqqqqqqq					
+			
+	
+	
+	
+Next ::: 
+
+	
+	AWS Security : 
+	
+	VPC -> Own Private Network!
+	
+	VPC -> 
+
+	- Micro-Service based Application ==> Docker/Kubernetes Service
+	
+		- Kubernetes Architecture!
+			
+	: Projects! 	
+		- AWS Infra-Struture 
+		- Micro-Service based Application ==> Docker/Kubernetes Service 
+		
+	: FAQs
+		
+			
 	
 	
 	
