@@ -767,6 +767,88 @@ Provisioning Infra-Struture using AWS Cli / IAC Tools :
 		- Terraform 
 	
 	
+#######################
+Day 7 : 9th August 2025
+#######################	
+
+
+	- Isolated & Secured Network to Deploy the Applications  ==> VPC 
+
+
+	- Ensure High Availability of the Infra-Struture!
+	
+	- High Availability & Scalability!	
+	
+		- Load Balancers
+		
+		- Auto-Scaling Groups 
+		
+	- AWS 99.99% of resource Availability!
+	
+		https://aws.amazon.com/compute/sla/
+		
+		https://uptime.is/
+		
+		
+
+	Routing :::
+	
+	Load Balancer!
+
+
+	- Host Based Routing 	
+	
+	- Path Routing 
+	
+	- Query/Parameter Based Routing 
+	
+	
+	www.google.com 				URL - IP_Address - DNS	
+	
+		- www.maps.google.com 						Host Based Routing 
+		- www.mail.google.com 
+		- www.traslate.google.com 
+		- www.drive.google.com 
+
+
+	www.mail.google.com 
+	
+		inbox :	www.mail.google.com/inbox 			Path Based Routing 
+		
+		sent :	www.mail.google.com/sent 
+		
+		trash : www.mail.google.com/trash 
+		
+	
+	www.mail.google.com/inbox
+
+		Search inbox : Staragile.com
+
+	www.mail.google.com/inbox?mail=Staragile.com
+
+
+	- Connection Draining!
+	
+		- Deregister the Connectio from that node 
+		
+		- Identity the next available node for that transaction.
+		
+		- ANy New Request shd not routed to that node.
+	
+		- This happens between - 1 to 3600 seconds
+
+
+
+Next :::
+	
+	ALB Demo :
+	
+	Containerization using ECS/ECR/EKS 
+	
+	Monitoring 
+	
+	Queues / Notification services ...............
+
 	
 	
 	
