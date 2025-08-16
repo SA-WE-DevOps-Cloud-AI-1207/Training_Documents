@@ -1178,6 +1178,170 @@ What is Containerization :::
 					Kubernetes_WorkerNode3	
 
 	
+
+########################
+Day 9 : 16th August 2025
+########################
+
+	ECS & EKS
+
+			- Controller Manager 
+			
+			
+	Kubernetes Services to ensure high-availability of Micro-Services.
+	
+		- It is Container Orchestration Tool 
+		- Kubernetes is used to Deploy any type of Containers.
+		- It is used to ensure high availability of the Applications/services running thru Containers.
+		- Used to Ensure High Availability of Containers by creating Replicas of Containers.
+		- It supports Auto-Scaling & Load Balancing.
+		- Self-Healing	
+
+		3-Tier Application :		In Production Environment - Prod_Servers-1,2,3 
+		
+			- Front-End				# User Interface  	- C1.1,1.2,1.3 				
+			- Application Layer 	# Business Logics 	- C2.1,2.2,2.3			
+			- Back-End 				# Database 			- C3.1,3.2,3.3  
+
+		- Replicas - 3 :
+		
+		- Kubernetes Pods!
+		
+			- Atomic unit of Task!
+			
+			- Front-End				# User Interface  	- Pod1.1,1.2,1.3 				
+			- Application Layer 	# Business Logics 	- Pod2.1,2.2,2.3			
+			- Back-End 				# Database 			- Pod3.1,3.2,3.3 			
+			
+		- Controller Manager :
+
+			- Deployment Controller :
+			
+			
+	Controller Object :::
+		ReplicaSet 
+		Deployment 
+
+
+	ReplicaSet :::
+	
+		--> Replicaset is used to execute the specific no. of pods in the cluster.
+		--> Replicaset uses the Set Based Operator
+		--> Used to replicate the pods and able to scale up/down
+		--> The Replicasets will be automatically created, while creating Deployment Controller Object.
+	
+	Deployment Controller Object :::
+	
+		--> It is used to deploy the pods and ensure high availability of pods by creating pod replicas 
+		--> 1. Create Muliple instance/replicas/copies of pods 
+			2. Used to Scale-Up / Scale-Down the Pods 
+			3. Used to Upgrade the application pods 
+			4. Used to Down-grade/roll-back the application pods
+		--> The upgrade/down-grade of application pods can be done without any downtime. 
+		--> To achieve zero-downtime during upgrade/down-grade, By Default, it used Rolling-Update Deployment Strategy.
+		
+
+
+	App Service :
+
+		Pod1.1,1.2,1.3
+		Pod2.1,2.2,2.3
+		Pod3.1,3.2,3.3
+		
+		
+	Web App : webappimg1.0				====>					webappimg1.1		
+	
+	
+	Replicas = 3 
+	
+	
+	Prod_Server1,2,3,4,5,6: mywebapp_SNAP_SHOT_V1.0.war			LIVE App 
+	
+	mywebapp_SNAP_SHOT_V2.0.war
+	
+	Prod_Server1,2,3,4,5,6: mywebapp_SNAP_SHOT_V2.0.war			LIVE App 
+	
+	
+	
+	
+	Web App : webappimg1.0				====>					webappimg1.1 (latest)	
+
+	Deployment Strategy: 
+	
+	Kubernetes Default Deployment Strategy ::: Rolling Update Strategy.
+		- Help to ensure 100% availability of application service!
+		- Time-consuming!
+	
+		- Canery Deployments 
+	
+		- Blue-Green Deployments
+	
+	
+	
+	During Upgrade of Service!
+	
+		pod1 webappimg1.0		--> 	webappimg1.1
+		
+		pod2 webappimg1.0		--> 	webappimg1.1
+		
+		pod3 webappimg1.0		--> 	webappimg1.1
+	
+	
+	
+
+	CloudFront - Edge Network!
+	Global Accelerators 
+	
+	CloudFront ==> Origin S3 ==> content
+	
+	- Edge Network - CloudFront
+	
+	
+	SNS 	-> Notification Service 
+	
+	SQS 	-> Queue Service 
+	
+		
+	AWS Route53 Services ==> DNS 	===> Paid Service!
+	
+	
+	
+	Serverless - Lambda Service!
+	
+	
+	Overall Application LifeCycle!  
+	
+	
+		- Tasks 
+		
+		- E-Commerce > www.Amazon.com 			AWS Clound - PROD - LIVE Envi.
+	
+			- Sign-up
+			
+			- Sign-in
+			
+			- search for products --> 10 seconds ==> 1M Users * 10 sec. ==> AWS 
+			
+			- add to cart 
+			
+			- make payment 
+					
+			- Order confirmation 
+			
+			- track the order 
+	
+	
+	
+	IAAS/PAAS/ ==> SAAS 
+	
+	
+Next :::
+
+	- Cloudwatch 
+	- Exam Tips 
+	- Best Practices 
+	
+	
 	
 	
 	
