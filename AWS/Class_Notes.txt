@@ -1343,6 +1343,80 @@ Next :::
 	
 	
 	
+#########################
+Day 10 : 17th August 2025
+#########################	
+	
+	- Cloudwatch ::
+
+		-> Continuous Monitoring!
+		
+		- Architecture 
+		
+			--> AWS Cloudwatch
+			
+			--> Azure Monitor
+			
+			--> Dynatrace/Splunk/DataDog/
+			
+			--> Prometheus/Grafana*****
+			
+			
+			--> Monitoring Server/Service 
+			
+					==> Monitoring DataBase(Time Series Data Base)
+					
+					==> Retrieval Component 
+			
+			--> Target Server/Service 
+			
+			
+	- AWS Security ::
+	
+		- Authentication :::
+		
+			- API Tokens :::
+			
+				-> Secrets!
+				
+				-> Secret Manager! 
+				
+					--> Key Vaults # To store the encrypted tokens/keys.
+
+							Secrets Token -
+
+
+
+-- Create an AWS Highly available and Secured Infra-Struture to deploy an application with DBase!
+  
+-- https://docs.aws.amazon.com/ 
+
+-- https://aws.amazon.com/architecture/well-architected/?achp_expl1
+
+-- https://aws.amazon.com/blogs/aws/aws-well-architected-framework-updated-white-papers-tools-and-best-practices/
+
+
+-- https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html
+		
+		
+-- https://aws.amazon.com/getting-started/onboarding-to-aws/
+		
+FAQs:
+		
+		DevOps 		==> ci/cd
+		
+		DevSecOps  	==> To implement shift-left approach as part of DevOps workflow
+		
+		
+		Dev --> QA --> UAT --> Prod
+		
+		java - jdk - Licensed/
+		source code 
+		
+		Quality Gates!
+		
+		
+		Security Audit! - IT Security Team.	
 	
 	
 	
