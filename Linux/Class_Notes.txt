@@ -1,0 +1,96 @@
+
+
+#########################
+Day 11 : 23rd August 2025
+#########################
+	
+
+Fundamentals of Linux Operating System
+
+	based on DevOps Perspective!
+
+Overview of Linux
+Linux Architecture
+Linux Distributions
+Basic Linux Commands
+File Permission Management
+User Creation
+Shell Scripts
+SSH and VI Utility	
+
+	- Introduction to Linux OS ::::
+	
+Operating System :::
+
+	Fundamentals of Linux Operating System 
+	
+		- Windows 
+		- Mac 
+		- Linux 
+		
+	Linux Operating System 
+		- Open-Source 
+		- Is Secured 
+		- Linux OS was created based on the Unix Operating System 
+		- Is an interface between the user applications and underlying Hardware.
+		- Linux OS is based on the Command User Interface
+		- Core of Linux OS is called kernel!
+			Components of Linux OS Architecture
+				- Networking 
+				- Storage 
+				- IPC - Inter Process Communication
+				- User Management 
+				- Security Management 
+				- Control Groups 
+				- Namespace 
+				- Process 
+			
+		- Command Line Interface 
+		
+		- Linux Distributions :::
+		
+			- Flavors of Linux OS 
+			
+				- Centos / RHEL 
+				- Debian / Ubuntu 
+				- Fedora
+				
+			Package Management - Package Managers :::
+				- Package Managers are used to install/Uninstall/Upgrade the Packages/software 
+			
+					- Centos / RHEL 		===> 	yum package Manager 
+					- Debian / Ubuntu 		===>	apt/apt-get package Manager 
+					- Fedora				===>	dnf (Latest Version of Fedora)
+													yum (Previous Version of Fedora)
+													
+				- Package Managers can be executed only by the root user on Linux
+				
+					- To work with Package Manager :
+						- Elevate the Access to Root Level 
+							- sudo -i			# This Command is used to elevate the access to root level
+				
+	Learn Linux on DevOps Perspectives :
+	
+		What the Role of DevOps Team/Engineer on Linux.
+		
+			- All the DevOps Tools can be installed and Managed in Linux Machines 
+		
+		What is your role here ????
+		
+			- Install all the DevOps Tools 
+			- Package Management - Periodically Upgrade/Uninstall - Backup of the Tools
+			- Managing Remote Servers 
+				- Client Server Architecture 
+				- Server1 (VM)
+					- Client1,2,3,4,5,6
+					
+			- As a DevOps Team we can Manage the Linux Machines
+			
+				- Package Management 
+				- File Management 
+				- User Management 
+				- Access Management 
+				- Remote Servers Management 
+				- Process Automation(Shell Scripting)
+					
+		
