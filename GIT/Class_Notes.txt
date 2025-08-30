@@ -1,0 +1,465 @@
+
+#########################
+Day 13 : 30th August 2025
+#########################
+
+
+	- Version Control System using GIT :::: 
+	
+	- Continuous Development :::
+	
+		
+	- What is Version Control System ???
+	
+		- Is used to version control the source code changes 
+		- Is used to track the changes 
+	
+	
+	- index.html :::
+	
+	<html>
+	---
+	-
+	-
+	-
+	-
+	-
+	</html>
+	
+	save as index.html 
+	
+	testing 
+	
+	<html>
+	---
+	-
+	-asdfasda
+	-adfasdf
+	-
+	-asdfsdf
+	</html>	
+	
+	save as index.html 
+	
+	testing 	
+	
+	<html>
+	---
+	-
+	-asdfasda
+	-adfasdf
+	-asdfasdaa
+	sdf
+	asdfasdafa
+	sdfasdf
+	asdfasdafaasdfs
+	-asdfsdf
+	</html>	
+	
+	save as index.html 
+	
+	testing 
+
+
+	Using Version Control System :::
+	
+	<html>
+	---
+	-
+	-
+	-
+	-
+	-
+	</html>
+	
+	save as index.html 		==> index.html_v1.0
+	testing 
+		
+	<html>
+	---
+	-
+	-asdfasda
+	-adfasdf
+	-
+	-asdfsdf
+	</html>	
+	
+	save as index.html 		==> index.html_v1.1			# v1.1 ===> tag/version_Number/Commit_id
+	save as index.html 		==> index.html_v1.2
+	save as index.html 		==> index.html_v1.3
+	save as index.html 		==> index.html_v1.4
+	save as index.html 		==> index.html_v1.5
+	
+	
+	Types of Version Control System :::
+	
+	- Local VCS ::::
+		- Single User to Version Control the changes in Local Machine.
+		
+	- Centralized VCS ::::
+		- Central Server is used to maintain the versions of Source Code.
+		- It is completely Online Process.
+		
+	- Distributed VCS ::::
+
+		- Maintain Remote Servers to Version the Source Code Repositories.
+		
+		
+	- GIT ::
+	
+		- Is an Open-Source Distributed VCS 
+		- Is used to version control the source code changes 
+		- Is used to track the changes 
+		- Used to perform parallel development using Branching techniques.
+	
+		
+	Working with GIT :::
+	
+	- Git File Workflow :::
+	
+	- Git Branching Techniques :::
+	
+	- Git Cli Commands :::
+	
+	- Misc. Git Commands :::
+	
+	- Remote Repositories :::
+	
+	
+	GITHUB - Remote Repository Server 
+	
+	Other Distributed VCS ::
+	
+		AWS CodeCommit 
+		
+		Azure Repos 
+		
+		BitBucket
+		
+		gitlab 
+		
+		
+	Git client runs in local machine :
+		- Used to create/manage local git repositories.
+		- Interact with remote github repositories.
+		
+		
+	- Git File Workflow :::
+	
+	
+	Local Machine:																			Remote Server(Github):
+	
+	Install git client 
+	
+	Working Directory 				Staging Area				Local Repository				Remote Repository
+	
+	
+	index.html		 --------------> index.html ---------------> index.html_v1.0 --------------> index.html_v1.0
+						git add 				   git commit						git push
+	index.html		 --------------> index.html ---------------> index.html_v1.1 --------------> index.html_v1.1
+						git add 				   git commit						git push
+	index.html		 --------------> index.html ---------------> index.html_v1.2 --------------> index.html_v1.2
+						git add 				   git commit						git push
+	index.html		 --------------> index.html ---------------> index.html_v1.3 --------------> index.html_v1.3
+						git add 				   git commit						git push
+	index.html		 --------------> index.html ---------------> index.html_v1.4 --------------> index.html_v1.4
+						git add 				   git commit						git push
+	
+		
+	- Developers' Workload :::
+	
+		--> New Project/Services 		
+		--> Enhancement Project/Bug fixing 
+
+	GIT Cli Commands :::	
+	
+		git clone 					# To Copy/Clone the entire remote repository to local machine
+		
+		git add 					# To add the changes from working directory to staging area 
+		
+		git commit 					# To commit the changes from staging area to local repository 
+		
+		git push 					# To Push the changes from local repository to remote repository
+		
+		git fetch/git pull :
+		
+			# Both git fetch & git pull are used handle the incremental changes from remote repository.
+			
+			- git fetch :
+				- Is used to just check for the incremental changes in remote repository, if there is any changes exist, it will update the detail in the local repository. git fetch will never update the working directory.
+				
+				- Explicit git pull/merge should be done to update the incremental changes inworking directory.
+				
+			- git pull :
+				- Is used to check for the incremental changes in remote repository, if there is any changes exist, it will update the detail in the local repository as well as merge the changes in working directory.
+				
+				- git pull = git fetch + git merge 
+				
+				- It is always recommended to use git pull to keep the local repository in-sync with remote repository.	
+			
+		Fork 						# To take a backup of one remote repository to another.
+		
+		git init 					# To initialize a local git repository
+									# Create a .git directory & a default branch - master/main 
+		
+				
+			
+	Install git client :::::
+	
+		
+
+								
+	Install GIT :::
+	
+		https://git-scm.com/downloads
+		
+		git --version 
+		
+		
+		Windows Machine :
+		
+			- GIT BASH  --> Based on Linux Bash Shell   
+			- GIT CMD 	--> Based on Windows PowerShell 
+			- GIT GUI 	--> GUI Tool 
+	
+
+	Working with Git Cli Commands ::::
+	
+
+	git --version
+
+	Folder Structure :::
+	
+		cd d: 
+		
+		mkdir SA-DAI
+		
+		cd SA-DAI
+		
+		mkdir proj1
+			cd proj1 
+				git init 
+		mkdir proj2
+		mkdir repo1
+
+
+		git init 					# To initialize a local git repository
+									# Create a .git directory & a default branch - master/main 
+
+	Local Machine:																
+	
+	Install git client 
+	
+	Working Directory 					Staging Area				Local Repository
+	
+	
+	f1.txt		 		--------------> f1.txt 		---------------> f1.txt
+							git add 				   git commit					
+
+
+
+		git status 					# To get the status of git repository - current branch 
+		
+		
+		echo "rec1" >> f1.txt 
+		
+		git add f1.txt
+		
+		git commit -m "Create f1.txt"
+		
+		
+		git Configuration :		
+		
+			- Global Configuration ==> It applicable to all the repositories.
+			
+				git config --global user.name "Loksai"			
+				git config --global user.email "loksai@adf.com"
+			
+			
+		git init 
+
+		git config --global user.name "Loksai"					# One time activity
+		git config --global user.email "loksai@adf.com"			# One time activity
+		
+		echo f1.txt 
+		
+		git add f1.txt 
+		
+		git commit -m "Create f1.txt"
+		
+		git log 	
+		
+		
+		git add ::::		
+		
+			git add <file1.txt> 
+		
+			git add <file1.txt> <file2.txt>	
+			
+			git add *.java *.md 
+			
+			git add .								# Add all the files from working directory to staging area
+		
+		git log :::
+		
+			git log 
+			
+			git log --oneline
+			
+			git log -3
+			
+			git log --oneline -2			
+			
+		git show <commit_id> 
+
+
+		Undo the Changes ::::
+		
+			UnStage :::			
+				
+				- git rm --cached <file_Name>			# Remove the changes just from the staging area. 
+				
+				- git rm -rf <file_Name>				
+									# Remove the changes just from the staging area as well as from working directory. 														
+
+		ls 					# Linux Command to get the list of files & directories 
+		
+		git ls-files 		# git cli Command to get the list of changes that are being tracked by git.
+
+  505  cd d:
+  506  mkdir SA-DAI-25
+  507  cd SA-DAI-25/
+  508  mkdir sampleproj1
+  509  cd sampleproj1/
+  510  clear
+  511  pwd
+  512  ls
+  513  ls -a
+  514  git init
+  515  ls
+  516  ls -a
+  517  .git
+  518  cd .git/
+  519  ls
+  520  cd ..
+  521  ls
+  522  clear
+  523  git status
+  524  ls
+  525  echo "rec1" >> f1.txt
+  526  ls
+  527  git status
+  528  git add f1.txt
+  529  git status
+  530  git commit -m "Create f1.txt"
+  531  git status
+  532  git log
+  533  ls
+  534  echo "rec1" >> f2.txt
+  535  git status
+  536  git add f2.txt
+  537  git status
+  538  git commit -m "created f2.txt"
+  539  git status
+  540  git log --oneline
+  541  git log
+  542  clear
+  543  cd .
+  544  cd ..
+  545  ls
+  546  mkdir sampleproj2
+  547  cd sampleproj2/
+  548  git init
+  549  echo "rec1" >> s1.txt
+  550  git status
+  551  git add s1.txt
+  552  git commit -m "Created s1.txt"
+  553  clear
+  554  ls
+  555  git log
+  556  ls
+  557  git status
+  558  clear
+  559  echo "rec1" >> a1.txt
+  560  echo "rec1" >> a2.txt
+  561  echo "rec1" >> a3.txt
+  562  echo "rec1" >> q1.java
+  563  echo "rec1" >> q2.java
+  564  echo "rec1" >> q3.java
+  565  echo "rec1" >> l1.md
+  566  echo "rec1" >> l2.md
+  567  echo "rec1" >> l3.md
+  568  git status
+  569  ls
+  570  git add a1.txt
+  571  git status
+  572  git add a2.txt q1.java
+  573  git status
+  574  git add *.java
+  575  git status
+  576  git add .
+  577  ls
+  578  git status
+  579  git commit -m "Created some files"
+  580  git status
+  581  git log
+  582  echo "rec1" >> z1.txt
+  583  git add .
+  584  git commit -m "z1"
+  585  echo "rec1" >> z2.txt
+  586  git add .
+  587  git commit -m "z2"
+  588  echo "rec1" >> z3.txt
+  589  git add .
+  590  git commit -m "z3"
+  591  echo "rec1" >> z4.txt
+  592  git add .
+  593  git commit -m "z4"
+  594  clear
+  595  git log
+  596  git log --oneline
+  597  git log -3
+  598  git log --oneline -3
+  599  git log --oneline -1
+  600  git show 51bcfe1
+  601  git log --oneline -2
+  602  git log -1
+  603  git status
+  604  echo "rec!" >> k1.txt
+  605  git add .
+  606  ls
+  607  git status
+  608  git rm --cached k1.txt
+  609  git status
+  610  git add .
+  611  ls
+  612  git rm -rf k1.txt
+  613  ls
+  614  git status
+  615  echo "rec1" >> m1.txt
+  616  echo "rec1" >> m2.txt
+  617  git add .
+  618  clear
+  619  git status
+  620  git rm --cached m2.txt
+  621  git status
+  622  git commit -m "created m1.txt"
+  623  git status
+  624  git add .
+  625  git status
+  626  clear
+  627  ls
+  628  git status
+  629  git ls-files
+  630  git rm --cached m2.txt
+  631  ls
+  632  git ls-files
+  633  clear
+  634  cd ..
+  635  history
+
+Next :::
+
+		git reset  :::
+		
+		git revert :::
