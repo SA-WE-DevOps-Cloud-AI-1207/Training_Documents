@@ -1,0 +1,280 @@
+#########################
+Day 15 : 6th Sep. 2025
+#########################
+		
+Build Orchestration using Jenkins:::	
+
+	Jenkins ::::
+		
+	Build Orchestration Tool - Jenkins
+	
+	Jenkins :::
+	
+	Continuous Development & Continuous Integration ::::
+	
+		Using DevOps Approach ::
+			Developers :
+			-- Create Application Source Code 
+			-- Commit the Source Code to Source Code Repository like github
+			
+			Using DevOps Process :
+			Automate ::
+
+			- Build the code - Compile and create artifacts 					
+			- Unit Testing 					
+			- Promote the Application to higher testing Environment					
+			- Notify the Testing/Development Team 	
+
+		Tools :::
+		
+			- Eclipse based IDEs - like Eclipse for Java,Pycharm,Intellij, Visual Studio, Visual Studio Code
+			- Source Code Management Tool - like github/AWS Code Commit/Azure Repos 
+			- Jenkins/AzurePipeline/AWS CodeBuild/gitlab-ci/bamboo/github-actions
+			
+			
+	Environment:
+	
+		Dev 
+			Create Source Code!							--> Eclipse/GIT/GITHUB
+			
+		Build 
+			use the code in build enviroment			--> Git 
+			build - compile								--> maven
+			create artitfacts							--> maven
+			unit test 									--> maven,junit
+			promote the artifacts to Test environment   --> Ansible/Deployment plugins/SSH
+		
+		Test 
+			Automated QA Testing 						--> TestNG,Selenium
+			Generate Test Reports 						--> TestNG,Selenium	
+			Validated Test Results 						--> TestNG,Selenium
+			promote the artifacts to Prod environment	--> Ansible/Deployment plugins/SSH 	
+	
+	
+
+	What is Jenkins :::
+	
+		Jenkins is Open-Source Build Orchestration Tool.
+		Used to Automate the End-to-End Application Build and Deployments
+		Using Jenkins we can create CI/CD Pipelines 
+		
+	Jenkins Architecture ::
+	
+		Jenkins is based on Master-Slave Architecture :::
+		
+			Jenkins_Master (VM)				==> Install Jenkins - To Create Jenkins CI/CD Pipeline Jobs/Projects
+				Jenkins_SlaveNode1 (VM)		==> Perform Application Builds - compile/create artifacts
+						
+						
+		At Enterprise level :::
+		
+			Java Applications 
+			.Net Applications
+			Python Applications 
+
+		Scenario1 :	Application Build and Release frequency is very less.
+		
+			Jenkins_Master (VM) 	==> Create Jenkins CI/CD Pipeline Projects & Execute the Build in same Jenkins_Master Node.
+			
+			
+		Scenario2 : Muliple Applications with high Build and Release frequencies.
+			
+			Jenkins_Master (VM)			==> To Create Jenkins CI/CD Pipeline Projects and schedule to the builds in the slave_nodes
+																	
+				Jenkins_SlaveNode1 (VM)	==> Perform Application Builds - Java Applications 
+				Jenkins_SlaveNode2 (VM)	==> Perform Application Builds - .Net Applications			
+				Jenkins_SlaveNode3 (VM)	==> Perform Application Builds - Python Applications 
+				Jenkins_SlaveNode4 (VM)	==> Perform Application Builds - Angular/NodeJS
+				Jenkins_SlaveNode5 (VM)	==> Perform Application Builds - Ruby 
+				
+	CI/CD Workflow :::
+	
+		SCM_Checkout 
+		Application Build 
+		Unit Testing 
+		Create Artifacts 
+		Promote the Application to Test Environments
+		Notify 
+		Deploy to Prod 
+
+
+	Working with Jenkins :
+	
+	- Developers' Perspectives :
+	
+		- Developers are just the consumers of Jenkins using Jenkins Tools and Services.
+		- Developers use Jenkins to execute/cancel/view the output - workspace of the Jenkins projects/Pipelines/Jobs.
+		
+	- DevOps Perspectives:
+		
+		- DevOps Team is the owner of Jenkins.		
+		
+		- Roles & Responsibilities of DevOps Team/Resources :
+		
+		- Jenkins Administration :
+		
+			- Installation of Jenkins 
+			- Global System Configurations
+			- Plugins Management 
+			- Tools Management 
+			- User Management
+			- Security Management 
+			- Credential Management
+			- Create Jenkins Projects in Jenkins Master Node
+			- Configuration and Management of Jenkins Master/Slave Architecture
+			- Create CICD Pipeline Projects/Jobs to Automate Application Builds and Deployments
+			- Onboard the Applications to CI/CD Process
+			- Jenkins Server - Periodic Backup for Recovery
+			- Periodic Upgrade of Jenkins Server and the plugins
+			- Trouble-shooting any Jenkins related issues
+			
+	- Installation of Jenkins :::	
+	
+		- Ubuntu Machine - 22.04v AMI
+		- Install Jenkins.
+		
+			- Jenkins Package run as a service using default port 8080
+				- It can be execute using Web-Browser
+				
+				
+		https://www.jenkins.io/doc/book/installing/
+		
+		https://www.jenkins.io/doc/book/installing/linux/
+		
+		- Pre-Requisites
+		- Installation of Jenkins 
+		- Post-Installation Activities 
+		
+		- Upon Installation :
+		
+			Access Jenkins Dashboard.
+			
+
+	- Global System Configurations :
+		
+		==> Is used to Configure the default properties/External Services/Servers in Jenkins.
+		--> goto manage jenkins -> Choose System Config
+		
+	
+	- Plugins Management :
+		==> Manage Plugins - Enable/Disable/Install/Uninstall/Update 
+		--> goto manage jenkins -> Choose Plugins
+
+	
+	- Tools Management :
+		==> Manage the Dev/Build Tools for Jenkins 	
+	
+	
+	- User Management : 
+		==> Enable User Authentication
+	
+	
+	- Security Management :	
+		==> Enable User Authorization
+	
+	
+	- Credential Management : 
+		==> It is the default Crendial Manager for Jenkins to Manage the Credentials of External Servers/Users
+	
+
+	- Create Jenkins Projects in Jenkins Master Node
+
+		-> Free-Style Projects 
+		
+				- Completely Manual - configured using Jenkins Dashboard/Web-Interface 
+				
+				
+				Jenkins Variables :
+				
+					- Environment Variables 		# Reserved Jenkins Key-words
+													# meant of each job.
+													
+						"jenkins-${JOB_NAME}-${BUILD_NUMBER}"
+						
+						"${var1}"		# Syntax to use variables 
+						
+						
+					
+					
+					- User-Defined Variables.		# Created by the users to parameterize the Jobs.
+					
+						enviroment = "qa" 
+						
+				
+				
+				
+							x = 5 
+				
+		
+		-> Pipeline Projects :
+	
+				- Completely Automated - configured using Jenkins Pipeline Scripts - Groovy
+				- Create Pipeline Project Templates to onboard any application.
+				
+				
+				- Two Types of Jenkins Pipelines :
+				
+					- Scripted Pipelines 
+					
+					- Declarative Pipelines 	# Simplified version of Scripted Pipelines.
+												# Script/Snippet Generator - used to generate scripts.
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Hello1') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+
+	CI/CD Workflow :::
+	
+		SCM_Checkout 
+		Application Build 
+		Unit Testing 
+		Create Artifacts 
+		Promote the Application to Test Environments
+		Notify 
+		Deploy to Prod 
+
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM_Checkout'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+            }
+        }
+        stage('Deploy to QA Server ') {
+            steps {
+                echo 'Deploy to QA'
+            }
+        }
+    }
+}
+
+
+Next :::
+
+	- Configuration and Management of Jenkins Master/Slave Architecture
+	- Create CICD Pipeline Projects/Jobs to Automate Application Builds and Deployments
+	- Onboard the Applications to CI/CD Process
+	- Jenkins Server - Periodic Backup for Recovery
+	- Periodic Upgrade of Jenkins Server and the plugins
+	- Trouble-shooting any Jenkins related issues
