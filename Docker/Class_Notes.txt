@@ -1,0 +1,176 @@
+#########################
+Day 16 : 7th Sep. 2025
+#########################
+
+	- Introduction - Containerization using Docker!
+	
+	- Micro-Service based application Build & Deployments :
+	
+		- Docker/Kubernetes!
+		
+		
+	What is Containerization ???
+	
+	- Containerization ::::
+	
+		- It is a process of packaging the application along with its dependencies.
+		
+		
+	- Virtual Machines ::
+	
+		- VMs are called as Hardware Level Virtualization
+		- VMs are created using Hypervisors
+		- VMS are used to run the Operating System
+		- VMs will continue to run even if there is no Active Task/Application
+		- VMs consume more space and time to start any application/service.	
+	
+	
+	- Containers ::
+			
+		- Containers are called as OS Level Virtualization
+		- Containers are created using Container Engine
+		- Containers are used to run the Task/Application. Not Operating System
+		- Containers will immediately go to EXIT State if there is no Active Task/Application
+		- Containers consume less space and time to start any application/service.
+		- Containers runs in its own dedicated/isolated address space
+		
+		- Core of Operating System called Kernel :
+			- Namespace & Control Groups
+	
+		- Containers can be used to reduce the no.of VMs. But we cannot completely eliminate the VMs.
+		
+		
+	
+	
+	Working with Containers ::::
+	
+	
+	1. Infra-structure Perspectives ::
+	
+		Without using Containers :
+		
+			Jenkins_Master (VM)			==> To Create Jenkins CI/CD Pipeline Projects and schedule to the builds in the slave_nodes
+																	
+				Jenkins_SlaveNode1 (VM)	==> Perform Application Builds - Java Applications 
+				Jenkins_SlaveNode1.1 (VM)==> Perform Application Builds - Java Applications 
+				Jenkins_SlaveNode2 (VM)	==> Perform Application Builds - .Net Applications			
+				Jenkins_SlaveNode3 (VM)	==> Perform Application Builds - Python Applications 
+				Jenkins_SlaveNode4 (VM)	==> Perform Application Builds - Angular/NodeJS
+				Jenkins_SlaveNode5 (VM)	==> Perform Application Builds - Ruby 	
+			
+		Using Containers :
+
+			Jenkins_Master (VM)			==> To Create Jenkins CI/CD Pipeline Projects and schedule to the builds in the slave_nodes
+																	
+				Jenkins_SlaveNode1 (VM)	==> Build Server 
+					Install Container Engine 
+						C1 				==> Perform Application Builds - Java Applications   ==>
+						C2              ==> Perform Application Builds - .Net Applications	
+						C3              ==> Perform Application Builds - Python Applications 
+						C4              ==> Perform Application Builds - Angular/NodeJS
+						C5              ==> Perform Application Builds - Ruby 	
+						
+		Testing Environments :::
+		
+	
+	2. Developers'/Deployment Perspectives ::
+
+
+		- It is a process of packaging the application along with its dependencies.
+		
+		Dev Environment :
+		
+			- Create Source Code 	- Eclipe-IDE,github
+			
+			- Build, Create Artifacts(mywebapp.war)
+			- Unit Testing 			
+			- jdk17,tomcat8
+
+			- Promote the Changes to Higher Environments 
+			
+		Using Containerization :
+		
+			- Create Source Code 	- Eclipe-IDE,github
+			
+			- Build, Create Artifacts(mywebapp.war)
+			- Unit Testing 			
+
+			- Package the Application along with its dependencies (mywebapp.war,jdk17,tomcat8) ===> mywebapp-Image:v1.0
+			
+			- Publish the Application Image to Container Registry 						
+			
+		
+		QA :	(mywebapp.war)	==> jdk11,tomcat7
+		
+			Run the (mywebapp.war) ==> 
+			
+			Install Container Engine
+			
+			mywebapp-Image:v1.0(mywebapp.war,jdk17,tomcat8) will be pulled in to the QA Server using Container Engine and Create Application Containers
+			
+			
+		UAT :
+
+			Install Container Engine
+			
+			mywebapp-Image:v1.0(mywebapp.war,jdk17,tomcat8) will be pulled in to the QA Server using Container Engine and Create Application Containers
+			
+		
+		PROD :
+		 
+			Install Container Engine
+			
+			mywebapp-Image:v1.0(mywebapp.war,jdk17,tomcat8) will be pulled in to the QA Server using Container Engine and Create Application Containers
+			
+			
+	Terminologies/Architecture Components:
+	
+		- Container Engine :
+			- It is used to Create and Manage Container Images and Containers.
+			- Docker Container Engine 
+		
+			- AWS 	: ECS 
+			- AZure : ACS 
+			- GCP 	: GCE
+			
+		- Container Images :
+		
+			- It is a static file that defines properties of the Containers and its depedencies
+			- It is Non-Executable
+			- It composed of various layer of Instructions which are defined using Dockerfile.
+			
+		- Containers :
+		
+			- Containers are the executable units of Container Images. 
+			- Containers are using the run the Applications defined in the Container Images. 
+			- It is also called a process.
+	
+		- Container Registry :
+		
+			- It is used to save and manage the versions of Container Images.
+			- Dockerhub is Container Registry to be used.
+				https://hub.docker.com/	
+			
+			- AWS 	: ECS,ECR 
+			- Azure : ACS,ACR
+			- GCP 	: GCE,GCR		
+			
+		- Container Repositories :
+		
+			- Container Repositories are the sub-set of Container Registry 
+			
+			
+			- Github 				: Version Control the Source Codes 
+			
+			- Artifactory Libraries : Version Control the Application Artifacts 
+			
+			- Container Registries  : Version Control the Application/Container Images 
+			
+
+	- Create an Account/Login to DockerHub :  https://hub.docker.com/	
+			
+
+
+Next ::
+
+	- Install and work with Containers
