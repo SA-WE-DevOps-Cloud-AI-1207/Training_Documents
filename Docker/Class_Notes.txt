@@ -174,3 +174,309 @@ Day 16 : 7th Sep. 2025
 Next ::
 
 	- Install and work with Containers
+
+
+
+
+
+#########################
+Day 17 : 13th Sep. 2025
+#########################
+
+	- Install and work with Containers
+
+	- Installation of Container Engine :
+	
+		- Install Docker Engine 
+			# https://docs.docker.com/engine/install/
+			
+			- Launch Ubuntu Machine - v22.04  / Use the existing Jenkins SlaveNode to Install Docker Engine
+			
+			- sudo -i 
+			- apt update -y 			
+			- apt install docker.io -y
+
+
+	- Working with Docker Cli Commands :
+	
+		docker --version
+
+	- Working Docker Container Images
+	
+	- DockerHub - Container Registry ::::
+	
+	- Working with Docker CLI Commands :
+	
+
+		- docker --version
+		
+		- docker images					# To get the list of Containers Images present in Local Machine  
+		
+		- docker ps 					# To get the list of only the active/running Containers in Local Machine  
+		
+		- docker ps -a 					# To get the list all active/running/Inactive Containers in Local Machine
+
+		- docker pull <image_name>		# It is used to download the latest version of Container Image from Container Registry.
+
+			Eg.: 
+			
+				docker pull alpine
+				docker pull alpine:latest 
+				
+				docker pull ubuntu
+				
+				docker pull nginx 
+				
+				docker pull tomcat 
+			
+		- docker pull <image_name>:<Tag/Version_Name>	# To download a specific version of Container Image from Container Registry.
+	
+			Eg.: 
+			
+				docker pull alpine:3.22.0	
+		
+				docker pull tomcat:8.0
+	
+	
+		Create Containers using existing Container Images from Container Registry :
+
+			
+		- docker run <Container_Image_Name>		# Create a Container based on the Container Image
+		
+		Eg.: 
+		
+			docker run ubuntu 
+			
+			docker run alpine:latest	
+	
+
+		Three Modes of Container Executions/Run :::
+		
+			- Foreground/Attached Mode ::							# Default Mode of Execution.
+
+				docker run <image_name> 
+				
+				Eg.: 
+				
+					docker run ubuntu sleep 20 		
+			
+			
+			- Background/Detached Mode ::
+			
+				docker run -d <image_name> 
+				
+				Eg.: 
+				
+					docker run -d ubuntu sleep 20 		
+			
+			
+			- Interactive Mode :
+			
+				docker run -it <image_name> bash 
+				
+				exit 								# Exit from the Container 
+				
+				Eg.: 		
+		
+				 docker run -it ubuntu bash	
+				 
+				 exit 								# Exit from the Container 
+	
+	
+		- Start Container ::
+		
+			docker start <Container_ID> 			# Used to start the Container.
+
+
+		- Login to Running Container :
+		
+			docker exec -it <Container_ID> bash 
+			
+			Eg.:
+			docker exec -it 37b84fd0ecc8 bash
+			
+			exit 									# Log-off 
+			
+		- Stop Container ::
+		
+			docker stop <Container_ID> 				# Used to stop the Container.
+		
+		
+		- Kill Container ::
+		
+			docker kill <Container_ID> 				# Used to force stop the Container.
+
+
+		- Remove Container from Local Machine :
+		
+			docker rm <Container_ID>				# Permanently remove the Container
+			
+		
+		- Remove Container Image from Local Machine :
+		
+			docker rmi <Image_ID>					# Permanently remove the Container Image
+		
+			docker rmi -f <Image_ID>				# Force remove the Container Image	
+
+			
+		- Get the list of Active/running Container IDs :
+		
+			docker ps -q
+		
+		
+		- Stop/Kill all the Active/running Containers :
+		
+			docker stop $(docker ps -q)
+		
+			docker kill $(docker ps -q)	
+			
+			
+		Create a Container using name tag :
+		
+			docker run -it --name=dev_env <image_name> bash			
+
+
+	- Docker Networking ::::
+	
+		- Port Mapping / Port Binding 
+		
+		
+			docker run -it tomcat:8.0 bash		 
+		 
+			docker run -it -p 8088:8080 tomcat:8.0 	
+		 
+			-p <host_port>:<container_port>
+			
+	
+	- Docker Volumes :		# Used to maintain the persistant data.
+
+		- Storage! 
+		
+		
+		Dev Application :
+		
+			Web Application :
+			
+				3-Tier Application 
+				
+			
+			Micro-Service :
+			
+			Layers of 3-Tier Application Architecture :::
+			
+				- Front-End			-- User_Interface 	- C1 
+				
+				- Application 		-- Business Logic 	- C2 
+				
+				- Back-End 			-- DataBase 		- C3
+				
+		
+		
+		Stateless Application	:::
+		
+			- Application that will not have any trace of execution.
+		
+		
+		Stateful Application 	:::
+		
+			- Application that will have some trace of execution.
+			
+			
+			
+		docker volume list 
+
+		docker volume create <volume_name>
+		
+		docker volume create sa-vol1
+	
+		docker volume inspect sa-vol1
+		
+		docker run -it --mount source=sa-vol1,destination=/sa-vol1 ubuntu bash
+		
+	
+		
+	- Create Docker Images 
+	
+		- Docker Commit 
+		
+		- Docker Build 		
+	
+		
+	Create Container Images ::::
+	
+	
+		docker commit ::
+		
+			- To Create a New Container Image based on the properties of existing Container.
+			
+			Syntax :
+
+				docker commit <existing_container_id> <dockerhub_repo_name>/<New_Image_Name>:<tag_Name>
+				
+				
+			Eg.: 
+			
+				docker commit 878557cff16a loksaieta/sa-java-build-env:v1.0
+				
+				
+	Publish the Container Image to Container Registry - DockerHub :::
+	
+		- Use Docker CLI Commands to interact with DockerHub!
+		
+		- Create DockerHub Access Token :
+		
+			UserName :
+			
+				docker login -u loksaieta
+			
+			PAT 	 :	
+			
+				aasdfasdfasdfasdfasdfasdfsdf
+		
+		- docker push loksaieta/sa-java-build-env:v1.0
+		
+	
+
+		
+		Docker Build ::
+		
+			- To create a new Container Image based on the Dockerfile reference.
+			- Dockerfile composed of Instructions to Create Docker Container Images
+			- Application Developers create the Dockerfile and update in the Source Code Repository. 
+		
+		
+			vi Dockerfile 
+			
+			FROM ubuntu
+			RUN apt update -y 
+			RUN apt install git -y 
+			RUN apt install maven -y
+		
+		
+			Syntax :
+			
+				docker build -t <dockerhub_repo_name>/New_Image_Name>:<tag_Name> .		# '.' refers to the Dockerfile path	
+		
+			Eg.: 
+			
+				docker build -t loksaieta/sa-java-mvnbuild-env .
+
+
+		
+Next :
+
+	- Dockerfile Instructions
+	
+	- Prepare the Java maven web Application Image
+		
+	- Container orchestration 
+	
+		- Docker Compose 
+		- Docker Swarm 
+		
+		- Kubernetes 
+		
+	- Prepare Jenkins CICD Pipeline Projects using Docker	
+	
+	- Kubernetes :::::
+	
