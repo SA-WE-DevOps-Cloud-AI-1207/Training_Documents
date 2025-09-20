@@ -185,3 +185,199 @@ Next :::
 	
 		- HostPath Volume 
 	
+
+#########################
+Day 20 : 15th Sep. 2025
+#########################
+
+	- Create and Configure Kubernetes Master and WorkNodes ::::
+			https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+	
+		- Kubernetes_Master (VM)
+			- Kubernetes_WorkerNode1 (VM)
+			- Kubernetes_WorkerNode2 (VM)
+			
+			
+			VM - Minikube (Single Node Kubernetes) :::
+			
+			Installing kubeadm --> Setup Kubernetes Cluster (Prod_Level)
+
+			
+			
+		Non-Prod Envionments 																		Prod-Environment 
+		
+		
+			Dev 
+			
+			Build 
+			
+			
+			Targets :
+			
+				Test_Environments
+				
+					QA 
+					
+					UAT											========================>				Production Servers
+					
+					
+		- Kubernetes_Master (VM) - Non-Prod Test Envionments											- Kubernetes_Master (VM) Prod Envionments
+			- Kubernetes_WorkerNode1 (VM)                                                               	- Kubernetes_WorkerNode1 (VM)
+			- Kubernetes_WorkerNode2 (VM)                                                               	- Kubernetes_WorkerNode2 (VM)
+			
+			
+		- Kubernetes_Master (VM)
+			- Kubernetes_WorkerNode1 (VM)
+			- Kubernetes_WorkerNode2 (VM)
+			
+			
+		Kubernetes Master and Worker Node Configurations :::
+
+			Installation of Kubernetes using Kubeadm :::	
+			
+					1. Launch 3 VMs on AWS Cloud (Ubuntu v22.04) --> (1 Master Node, 2 WorkerNodes)
+				
+				In all the Nodes(i.e., Master Node and WorkerNodes):
+				
+					2. Allow all traffic for all the nodes - just for this demo
+					3. Change the HostName of all the Nodes
+					4. Disable swap configuration in all the nodes
+					5. Install Docker in all the nodes ***
+					6. Install CRI - 'Container-D' in all the nodes
+					7. Install Kubeadm,kubelet,kubectl 
+					8. Enable Kubelet	
+				   
+				Only on Master Node:
+				
+					9. Execute Kubeadm Init Command 		# To initialize Kubernetes Master Node
+					10. Enable user Access to Kubernetes
+					11. Install flannel Network plugins for kubeproxy
+
+				Only on WorkerNodes:		
+				
+					12. Execute Kubeadm Join Command 		# To attach the Worknodes with Kubernetes Master Node.
+		
+	
+	Working with Kubernetes Objects ::::
+	
+		- Create a manifest file to deploy a pod
+	
+	- Pods & Networking :::
+	
+	
+		Default path for any Image :
+		
+			- nginx : /usr/share/nginx/index.html
+			
+			- tomcat : /usr/tomcat/webapps
+			
+			- loksaieta/myappimg : based on the base image! 
+										tomcat : /usr/tomcat/webapps/*.war
+										nginx : /usr/share/nginx
+	
+								FROM tomcat 8.0
+								
+								Docker Push Command :::: 
+								
+		Port Mapping ::::
+		
+			-p <host_port>:<Container_port>
+		
+		Service: 
+		
+			NodePort Service!
+				- Used to expose pods to internet!
+				- NodePort Service will assign a unique port to map the pod to internet
+				- 30000-32767
+				
+			-p <Node_Port>:<Target_Port>
+			
+			-p <30001>:<80>
+			
+			using <External IP of WorkerNode1>:30001 
+			
+			
+	Controller Object :::
+		ReplicaSet 
+		Deployment 
+
+
+	ReplicaSet :::
+	
+		--> Replicaset is used to execute the specific no. of pods in the cluster.
+		--> Replicaset uses the Set Based Operator
+		--> Used to replicate the pods and able to scale up/down
+		--> The Replicasets will be automatically created, while creating Deployment Controller Object.
+	
+	Deployment Controller Object :::
+	
+		--> It is used to deploy the pods and ensure high availability of pods by creating pod replicas 
+		--> 1. Create Muliple instance/replicas/copies of pods 
+			2. Used to Scale-Up / Scale-Down the Pods 
+			3. Used to Upgrade the application pods 
+			4. Used to Down-grade/roll-back the application pods
+		--> The upgrade/down-grade of application pods can be done without any downtime. 
+		--> To achieve zero-downtime during upgrade/down-grade, By Default, it used Rolling-Update Deployment Strategy.
+				
+			
+	App Service :
+
+		Pod1.1,1.2,1.3
+		Pod2.1,2.2,2.3
+		Pod3.1,3.2,3.3
+		
+		
+	Web App : webappimg1.0				====>					webappimg1.1		
+	
+	
+	Replicas = 3 
+	
+	
+	Prod_Server1,2,3,4,5,6: mywebapp_SNAP_SHOT_V1.0.war			LIVE App 
+	
+	mywebapp_SNAP_SHOT_V2.0.war
+	
+	Prod_Server1,2,3,4,5,6: mywebapp_SNAP_SHOT_V2.0.war			LIVE App 
+	
+	
+	
+	
+	Web App : webappimg1.0				====>					webappimg1.1 (latest)	
+
+	Deployment Strategy: 
+	
+	Kubernetes Default Deployment Strategy ::: Rolling Update Strategy.
+	
+		- Help to ensure 100% availability of application service!
+		
+		- Time-consuming!
+	
+		- Canery Deployments 
+	
+		- Blue-Green Deployments
+	
+	
+	
+	During Upgrade of Service!
+	
+		pod1 webappimg1.0		--> 	webappimg1.1
+		
+		pod2 webappimg1.0		--> 	webappimg1.1
+		
+		pod3 webappimg1.0		--> 	webappimg1.1
+					
+			
+			
+			
+Next :::
+
+	Continue with Deployment Controller Object 
+	
+	- Services 
+	
+	- volumes 
+	
+	- Namespaces 
+	
+
+	- Next Module
